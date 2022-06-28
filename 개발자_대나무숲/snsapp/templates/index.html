@@ -37,4 +37,20 @@
     <span class="text">글쓰기</span>
 </a>
 {% endif %}
+
+<!-- 페이지네이션 -->
+{% if post.has_previous %}
+<a href="?page=1">첫 페이지</a>
+<a href="?page={{post.previous_page_number}}">이전 페이지</a>
+{% endif %}
+
+<span> {{ post.number }} </span>
+<span> / </span>
+<span> {{ posts.paginator.num_pages }} </span>
+
+{% if posts.has_next %}
+<a href="?page={{post.next_page_number}}">다음 페이지</a>
+<a href="?page={{post.paginator.num_pages}}">이전 페이지</a>
+{% end if %}
+
 {% endblock %}
